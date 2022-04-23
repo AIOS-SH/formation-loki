@@ -1,0 +1,18 @@
+[Unit]
+Description=Loki
+Documentation=https://grafana.com/oss/loki
+Wants=network-online.target
+
+[Service]
+User=loki
+Group=loki
+Restart=on-failure
+ExecReload=/bin/kill -HUP $MAINPID
+WorkingDirectory=/var/lib/loki
+ExecStart=/opt/loki/loki --config.file=/etc/loki/loki.yml
+TimeoutStopSec=20
+UMask=0027
+
+[Install]
+WantedBy=multi-user.target
+
