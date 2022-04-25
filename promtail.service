@@ -1,14 +1,13 @@
 [Unit]
-Description=Loki
+Description=Promtail
 Documentation=https://grafana.com/oss/loki
 Wants=network-online.target
 
 [Service]
-User=loki
-Group=loki
+User=root
+Group=root
 Restart=on-failure
-WorkingDirectory=/var/lib/loki
-ExecStart=/opt/loki/loki --config.file=/etc/loki/loki.yml
+ExecStart=/opt/loki/promtail --config.file=/etc/loki/promtail.yaml
 TimeoutStopSec=20
 UMask=0027
 
