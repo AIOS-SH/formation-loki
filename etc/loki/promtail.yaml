@@ -7,6 +7,8 @@ positions:
 
 clients:
   - url: http://localhost:3100/loki/api/v1/push
+    external_labels:
+      instance: "my-promtail-instance"
 
 scrape_configs:
   - job_name: system
@@ -42,4 +44,5 @@ scrape_configs:
               expression: '^(?P<ip>\S+) - - \[(?P<time>\S+\s\S+)\] \"'
           - timestamp:
               source: time
+              # Check https://pkg.go.dev/time for more details
               format: "02/Jan/2006:15:04:05 -0700"
