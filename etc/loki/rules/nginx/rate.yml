@@ -1,0 +1,5 @@
+groups:
+  - name: nginx-rate
+    rules:
+      - record: nginx:requests:rate1m
+        expr: sum(rate({job="nginx"}[1m]))
