@@ -8,7 +8,7 @@ User=loki
 Group=loki
 Restart=on-failure
 WorkingDirectory=/var/lib/loki
-ExecStart=/opt/loki/loki --config.file=/etc/loki/loki.yml
+ExecStart=/opt/loki/loki --config.file=/etc/loki/loki.yaml
 TimeoutStopSec=20
 UMask=0027
 
